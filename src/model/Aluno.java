@@ -13,6 +13,7 @@ public class Aluno {
 	private int idade;
 	private String endereco;
 	private String telefone;
+	private String situacao;
 
 	// ATRIBUTOS DE RELACIONAMENTO
 
@@ -103,6 +104,29 @@ public class Aluno {
 			}
 		}
 	}
+	
+	// MÉTODOS RELACIONADOS AO DIAGRAMA DE ESTADO / SEQUENCIA
+	
+	public void cadastrar() {
+		this.situacao = "Análise";
+	}
+	public void validar() {
+		if(this.situacao.equals("Análise")) {
+			this.situacao = "Válido";
+		}
+	}
+	public void invalidar() {
+		if(this.situacao.equals("Análise")) {
+			this.situacao = "Inválido";
+		}
+	}
+	public void confirmar() {
+		if(this.situacao.equals("Válido")) {
+			this.situacao = "Ativo";
+		}
+	}
+	
+	// -----
 
 	@Override
 	public String toString() {

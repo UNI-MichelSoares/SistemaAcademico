@@ -10,6 +10,7 @@ public class Matricula {
 
 	private int id_matricula;
 	private LocalDate data;
+	private String situacao;
 
 	// ATRIBUTOS DE RELACIONAMENTO
 
@@ -84,6 +85,29 @@ public class Matricula {
 		}
 	}
 
+	// MÉTODOS RELACIONADOS AO DIAGRAMA DE ESTADO / SEQUENCIA
+	
+	public void cadastrar() {
+		this.situacao = "Análise";
+	}
+	public void validar() {
+		if(this.situacao.equals("Análise")) {
+			this.situacao = "Válido";
+		}
+	}
+	public void invalidar() {
+		if(this.situacao.equals("Análise")) {
+			this.situacao = "Inválido";
+		}
+	}
+	public void confirmar() {
+		if(this.situacao.equals("Válido")) {
+			this.situacao = "Ativo";
+		}
+	}
+	
+	// -----
+	
 	@Override
 	public String toString() {
 		return "Matricula{id=" + id_matricula + ", data=" + data + ", aluno="

@@ -11,6 +11,7 @@ public class Prova {
 	private int id_prova;
 	private LocalDate data;
 	private int peso;
+	private String situacao;
 
 	// ATRIBUTOS DE RELACIONAMENTO
 
@@ -85,6 +86,39 @@ public class Prova {
 		this.turma = turma;
 	}
 
+	// MÉTODOS RELACIONADOS AO DIAGRAMA DE ESTADO / SEQUENCIA
+	
+	public void cadastrar() {
+		this.situacao = "Análise";
+	}
+	public void validar() {
+		if(this.situacao.equals("Análise")) {
+			this.situacao = "Válido";
+		}
+	}
+	public void invalidar() {
+		if(this.situacao.equals("Análise")) {
+			this.situacao = "Inválido";
+		}
+	}
+	public void aplicar() {
+		if(this.situacao.equals("Válido")) {
+			this.situacao = "Realizado";
+		}
+	}
+	public void corrigir() {
+		if(this.situacao.equals("Realizado")) {
+			this.situacao = "Corrigido";
+		}
+	}
+	public void revisar() {
+		if(this.situacao.equals("Realizado")) {
+			this.situacao = "Revisada";
+		}
+	}
+	
+	// -----
+	
 	@Override
 	public String toString() {
 		return "Prova{id=" + id_prova + ", data=" + data + ", peso=" + peso + ", turma="
