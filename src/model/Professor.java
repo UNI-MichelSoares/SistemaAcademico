@@ -13,6 +13,7 @@ public class Professor {
 	private int idade;
 	private String endereco;
 	private String telefone;
+	private String situacao;
 
 	// ATRIBUTOS DE RELACIONAMENTO
 
@@ -103,6 +104,19 @@ public class Professor {
 			}
 		}
 	}
+	
+	// MÉTODOS RELACIONADOS AO DIAGRAMA DE ESTADO / SEQUENCIA
+	
+	public void cadastrar() {
+		this.situacao = "Análise";
+	}
+	public void validar() {
+		if(this.situacao.equals("Análise")) {
+			this.situacao = "Válido";
+		}
+	}
+	
+	// -----
 
 	@Override
 	public String toString() {

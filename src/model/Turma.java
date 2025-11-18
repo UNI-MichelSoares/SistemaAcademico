@@ -140,6 +140,19 @@ public class Turma {
 			}
 		}
 	}
+	
+	// MÉTODOS RELACIONADOS AO DIAGRAMA DE ESTADO / SEQUENCIA
+	
+	public void cadastrar() {
+		this.situacao = "Análise";
+	}
+	public void validar() {
+		if(this.situacao.equals("Análise")) {
+			this.situacao = "Válido";
+		}
+	}
+	
+	// -----
 
 	@Override
 	public String toString() {

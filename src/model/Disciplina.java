@@ -10,6 +10,7 @@ public class Disciplina {
 	private int id_disciplina;
 	private String nome;
 	private int credito; // ?
+	private String situacao;
 
 	// ATRIBUTOS DE RELACIONAMENTO
 
@@ -73,6 +74,19 @@ public class Disciplina {
 			}
 		}
 	}
+	
+	// MÉTODOS RELACIONADOS AO DIAGRAMA DE ESTADO / SEQUENCIA
+	
+	public void cadastrar() {
+		this.situacao = "Análise";
+	}
+	public void validar() {
+		if(this.situacao.equals("Análise")) {
+			this.situacao = "Válido";
+		}
+	}
+	
+	// -----
 
 	@Override
 	public String toString() {
